@@ -44,12 +44,13 @@ export function checkGuess(generatedNumber, playerGuess)
 function DetermineDistance(generatedNumber, playerGuess)
 {
     try{
-        console.log(Math.abs(generatedNumber, playerGuess));
-        if(Math.abs(generatedNumber, playerGuess) <= 10)
+        const distance = Math.abs(generatedNumber - playerGuess);
+        console.log(distance);
+        if(distance <= 10)
         {
             console.log(getRandomItemFromArray(CLOSE_TO_NUMBER_MESSAGES));
         }
-        else if(Math.abs(generatedNumber, playerGuess) <= 30)
+        else if(distance <= 30)
         {
             console.log(getRandomItemFromArray(MEDIUM_DISTANCE_TO_NUMBER_MESSAGES));
         }
