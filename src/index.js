@@ -4,9 +4,14 @@ import { handleErrors } from './errors/handleErrors.js';
 
 try {
   const generatedNumber = generateRandomNumber();
+
   // game logic here
-  let playerGuess = getPlayerGuess();
-  checkGuess(generatedNumber, playerGuess);
+
+  // TODO: include stop condition for the game loop
+  while (true) {
+    let playerGuess = getPlayerGuess();
+    checkGuess(generatedNumber, playerGuess);
+  }
 } catch (error) {
   handleErrors(error);
 }

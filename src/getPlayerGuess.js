@@ -8,14 +8,9 @@ export function getPlayerGuess() {
     const guess = prompt('Enter your guess (1-100):');
 
     try {
-      const parsedGuess = ensureUserPromptValueIsInteger(guess);
+      const parsedGuess = parseUserPromptValueToInteger(guess);
 
-      if (parsedGuess < 1 || parsedGuess > 100)
-        throw new ValidationError(
-          getRandomItemFromArray(
-            QUIRKY_AND_INFORMATIVE_USER_INPUT_ERROR_MESSAGES,
-          ),
-        );
+      ensureIntegerRangeIncludingMinAndMax(parsedGuess, 1, 100);
 
       return parsedGuess;
     } catch (error) {
@@ -24,7 +19,7 @@ export function getPlayerGuess() {
   }
 }
 
-function ensureUserPromptValueIsInteger(stringValue) {
+function parseUserPromptValueToInteger(stringValue) {
   const trimmedValue = stringValue.trim();
 
   let parsedValue = Number(trimmedValue);
@@ -35,4 +30,12 @@ function ensureUserPromptValueIsInteger(stringValue) {
     );
 
   return parsedValue;
+}
+
+function ensureIntegerRangeIncludingMinAndMax(value, min, max) {
+  if (value < min || value > max) {
+    throw new ValidationError(
+      getRandomItemFromArray(QUIRKY_AND_INFORMATIVE_USER_INPUT_ERROR_MESSAGES),
+    );
+  }
 }
