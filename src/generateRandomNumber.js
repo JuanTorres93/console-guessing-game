@@ -5,7 +5,7 @@ import {
   CLOSE_TO_NUMBER_MESSAGES,
   MEDIUM_DISTANCE_TO_NUMBER_MESSAGES,
   FAR_FROM_NUMBER_MESSAGES,
-} from './guessMessages.js';
+} from './messages/guessMessages.js';
 
 export function generateRandomNumber() {
   return Math.floor(Math.random() * 100) + 1;

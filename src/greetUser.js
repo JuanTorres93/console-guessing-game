@@ -3,7 +3,7 @@ import {
   STORY_INTROS,
   STORY_MIDS,
   STORY_ENDINGS,
-} from './backstory.js';
+} from './messages/backstory.js';
 
 import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
 
