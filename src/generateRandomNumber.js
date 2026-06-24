@@ -13,10 +13,12 @@ export function generateRandomNumber() {
 
 export function checkGuess(generatedNumber, playerGuess) {
   if (generatedNumber < playerGuess) {
+    console.log('Too high!');
     informUserAboutDistance(generatedNumber, playerGuess);
 
     return false;
   } else if (generatedNumber > playerGuess) {
+    console.log('Too low!');
     informUserAboutDistance(generatedNumber, playerGuess);
 
     return false;

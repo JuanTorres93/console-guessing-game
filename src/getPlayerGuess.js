@@ -39,3 +39,4 @@ function ensureIntegerRangeIncludingMinAndMax(value, min, max) {
     );
   }
 }
+

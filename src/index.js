@@ -1,17 +1,22 @@
 import { getPlayerGuess } from './getPlayerGuess.js';
 import { generateRandomNumber, checkGuess } from './generateRandomNumber.js';
 import { handleErrors } from './errors/handleErrors.js';
+import { calculateScore } from './calculateScore.js';
+import { game } from './game.js';
 
-try {
-  const generatedNumber = generateRandomNumber();
+game();
 
-  // game logic here
+// try {
+//   const correctNumber = generateRandomNumber();
 
-  // TODO: include stop condition for the game loop
-  while (true) {
-    let playerGuess = getPlayerGuess();
-    checkGuess(generatedNumber, playerGuess);
-  }
-} catch (error) {
-  handleErrors(error);
-}
+//   // game logic here
+
+//   // TODO: include stop condition for the game loop
+//   while (true) {
+//     let playerGuess = getPlayerGuess();
+//     checkGuess(correctNumber, playerGuess);
+//   }
+// } catch (error) {
+//   handleErrors(error);
+// }
+
