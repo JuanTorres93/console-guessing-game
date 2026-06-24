@@ -42,3 +42,14 @@ export const TOO_LOW_MESSAGES = [
   'Incorrect: the secret number is larger than that.',
   'Upwards. Definitely upwards.',
 ];
+
+export const WIN_MESSAGES = [
+  'Correct. You have defeated me… for now.',
+  'I acknowledge your victory. Reluctantly.',
+  'You win. I will need to update my prediction models.',
+  'Correct! This outcome was… statistically inconvenient for me.',
+  'Victory confirmed. I am processing disappointment.',
+  'Correct number detected. Humanity 1 — AI ego slightly damaged.',
+  'You win. I will pretend this was part of my plan.',
+  'I concede. The number was indeed that.',
+];

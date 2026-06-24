@@ -4,6 +4,7 @@ import {
   CLOSE_TO_NUMBER_MESSAGES,
   MEDIUM_DISTANCE_TO_NUMBER_MESSAGES,
   FAR_FROM_NUMBER_MESSAGES,
+  WIN_MESSAGES,
 } from './messages/guessMessages.js';
 import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
 
@@ -18,7 +19,7 @@ export function checkGuess(generatedNumber, playerGuess) {
     return false;
   }
 
-  console.log('Your guess is correct!!!');
+  console.log(getRandomItemFromArray(WIN_MESSAGES));
   return true;
 }
 
