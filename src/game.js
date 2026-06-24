@@ -1,5 +1,6 @@
 import { getPlayerGuess } from './getPlayerGuess.js';
-import { generateRandomNumber, checkGuess } from './generateRandomNumber.js';
+import { generateRandomNumber } from './generateRandomNumber.js';
+import { checkGuess } from './checkGuess.js';
 import { calculateScore } from './calculateScore.js';
 import { greetUser } from './greetUser.js';
 

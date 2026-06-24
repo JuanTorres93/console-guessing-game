@@ -1,5 +1,5 @@
 import { getPlayerGuess } from './getPlayerGuess.js';
-import { generateRandomNumber, checkGuess } from './generateRandomNumber.js';
+import { generateRandomNumber } from './generateRandomNumber.js';
 import { handleErrors } from './errors/handleErrors.js';
 import { calculateScore } from './calculateScore.js';
 import { game } from './game.js';
@@ -19,4 +19,3 @@ game();
 // } catch (error) {
 //   handleErrors(error);
 // }
-
