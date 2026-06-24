@@ -8,6 +8,7 @@ export function game() {
 
     let attempts = 0;
     let guessedCorrectly = false;
+    let guess;
 
     console.clear();
 
@@ -19,18 +20,21 @@ export function game() {
     console.log(`You have ${maxAttempts} attempts.`);
     console.log("-----------------------------------");
 
-    while (attempts < maxAttempts && !guessedCorrectly) {
+    while (attempts < maxAttempts && !guessedCorrectly && guess != "Restarting") {
         attempts++;
 
         console.log(`Round ${attempts} of ${maxAttempts}`);
 
         const guess = getPlayerGuess();
 
-        console.log(`You guessed: ${guess}`);
+        if(guess != "Restarting")
+        {
+            console.log(`You guessed: ${guess}`);
 
-        guessedCorrectly = checkGuess(generatedNumber, guess);
+            guessedCorrectly = checkGuess(generatedNumber, guess);
 
-        console.log("-----------------------------------");
+            console.log("-----------------------------------");
+        }        
     }
 
     if (guessedCorrectly) {
@@ -48,4 +52,12 @@ export function game() {
     }
 
     console.log("===================================");
+    if(guess != "Restarting")
+    {
+        if(confirm("Want to start a new game?"))
+        {
+            window.location.reload();
+            return;
+        }
+    }    
 }
