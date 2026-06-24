@@ -16,6 +16,8 @@ export function game() {
   while (attempts < maxAttempts && !guessedCorrectly) {
     attempts++;
 
+    console.log(`Attempt ${attempts} of ${maxAttempts}`);
+
     const guess = getPlayerGuess();
 
     if (guess === 'Restarting') {
@@ -30,6 +32,8 @@ export function game() {
     console.log(`You guessed: ${guess}`);
 
     guessedCorrectly = checkGuess(generatedNumber, guess);
+
+    console.log('-----------------------------------');
   }
 
   if (guessedCorrectly) {
