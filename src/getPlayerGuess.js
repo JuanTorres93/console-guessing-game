@@ -19,11 +19,9 @@ export function getPlayerGuess() {
       {
         if(confirm("Are you sure you want to restart the game?"))
         {
-          window.location.reload();
           return "Restarting";
         }
-          
-        
+
       }
     } catch (error) {
       handleErrors(error);
