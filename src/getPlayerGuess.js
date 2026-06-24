@@ -5,14 +5,26 @@ import { QUIRKY_AND_INFORMATIVE_USER_INPUT_ERROR_MESSAGES } from './errors/error
 
 export function getPlayerGuess() {
   while (true) {
-    const guess = prompt('Enter your guess (1-100):');
+    const guess = prompt('Enter your guess (1-100): (Type \'Restart\' to restart the game)');
 
     try {
-      const parsedGuess = parseUserPromptValueToInteger(guess);
+      if(guess != "Restart")
+      {
+        const parsedGuess = parseUserPromptValueToInteger(guess);
 
-      ensureIntegerRangeIncludingMinAndMax(parsedGuess, 1, 100);
-
-      return parsedGuess;
+        ensureIntegerRangeIncludingMinAndMax(parsedGuess, 1, 100);
+        return parsedGuess;
+      }
+      else
+      {
+        if(confirm("Are you sure you want to restart the game?"))
+        {
+          window.location.reload();
+          return "Restarting";
+        }
+          
+        
+      }
     } catch (error) {
       handleErrors(error);
     }
