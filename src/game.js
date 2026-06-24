@@ -14,26 +14,20 @@ export function game() {
 
   greetUser(maxAttempts);
 
-  while (attempts < maxAttempts && !guessedCorrectly) {
+  while (attempts < maxAttempts && !guessedCorrectly && guess != 'Restarting') {
     attempts++;
 
-    while (attempts < maxAttempts && !guessedCorrectly && guess != "Restarting") {
-        attempts++;
+    const guess = getPlayerGuess();
 
-      const guess = getPlayerGuess();
-
+    if (guess != 'Restarting') {
       console.log(`You guessed: ${guess}`);
 
-      if(guess != "Restarting")
-          {
-              console.log(`You guessed: ${guess}`);
-
-              guessedCorrectly = checkGuess(generatedNumber, guess);
-
-              console.log("-----------------------------------");
-          }        
+      guessedCorrectly = checkGuess(generatedNumber, guess);
     }
+  }
 
+  if (guessedCorrectly) {
+    const { score, rank } = calculateScore(attempts, maxAttempts);
     console.log('YOU WIN!');
     console.log(`Attempts Used: ${attempts}`);
     console.log(`Score: ${score}`);
@@ -45,24 +39,11 @@ export function game() {
     console.log('Score: 0');
   }
 
-        console.log("YOU WIN!");
-        console.log(`Attempts Used: ${attempts}`);
-        console.log(`Score: ${score}`);
-        console.log(`Rank: ${rank}`);
-    } else {
-        console.log("YOU LOSE!");
-        console.log(`The correct number was ${generatedNumber}`);
-        console.log(`Attempts Used: ${attempts}`);
-        console.log("Score: 0");
+  console.log('===================================');
+  if (guess != 'Restarting') {
+    if (confirm('Want to start a new game?')) {
+      window.location.reload();
+      return;
     }
-
-    console.log("===================================");
-    if(guess != "Restarting")
-    {
-        if(confirm("Want to start a new game?"))
-        {
-            window.location.reload();
-            return;
-        }
-    }    
+  }
 }
