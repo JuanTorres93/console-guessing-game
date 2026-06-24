@@ -24,3 +24,21 @@ export const FAR_FROM_NUMBER_MESSAGES = [
   'You might need a better map.',
   'The target is laughing from a safe distance.',
 ];
+
+export const TOO_HIGH_MESSAGES = [
+  'Too high! The number is LOWER than that.',
+  "Nope — that's too high. Go DOWN.",
+  "You're above it. The number is below your guess.",
+  'Too high! I expected better altitude control.',
+  'Incorrect: the secret number is smaller than that.',
+  'Downwards. Definitely downwards.',
+];
+
+export const TOO_LOW_MESSAGES = [
+  'Too low! The number is HIGHER than that.',
+  "Nope — that's too low. Go UP.",
+  "You're below it. The number is above your guess.",
+  'Too low! Try aiming higher, human.',
+  'Incorrect: the secret number is larger than that.',
+  'Upwards. Definitely upwards.',
+];
