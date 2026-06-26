@@ -2,9 +2,11 @@ import { ValidationError } from './errors/domainErrors.js';
 import { handleErrors } from './errors/handleErrors.js';
 import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
 import { QUIRKY_AND_INFORMATIVE_USER_INPUT_ERROR_MESSAGES } from './errors/errorMessages.js';
+import { sleep } from './utils/sleep.js';
 
-export function getPlayerGuess() {
+export async function getPlayerGuess() {
   while (true) {
+    await sleep();
     const guess = prompt(
       "Enter your guess (1-100): (Type 'Restart' to restart the game)",
     );
