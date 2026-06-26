@@ -18,8 +18,6 @@ export async function game() {
   greetUser(maxAttempts);
 
   while (attempts < maxAttempts && !guessedCorrectly) {
-    attempts++;
-
     console.log(`Attempt ${attempts} of ${maxAttempts}`);
 
     const guess = await getPlayerGuess();
@@ -27,18 +25,21 @@ export async function game() {
     if (guess === 'Restarting') {
       await sleep();
       if (confirm('Want to start a new game?')) {
-        window.location.reload();
-        return;
+        return game();
       }
 
       continue;
     }
 
+   
     console.log(`You guessed: ${guess}`);
 
     guessedCorrectly = checkGuess(generatedNumber, guess);
 
     console.log('-----------------------------------');
+
+    if(guess !== 'Restarting')
+      attempts++;
   }
 
   if (guessedCorrectly) {
