@@ -9,11 +9,7 @@ import {
 import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
 
 export function checkGuess(generatedNumber, playerGuess) {
-  if (generatedNumber < playerGuess) {
-    informUserAboutDistance(generatedNumber, playerGuess);
-
-    return false;
-  } else if (generatedNumber > playerGuess) {
+  if (generatedNumber !== playerGuess) {
     informUserAboutDistance(generatedNumber, playerGuess);
 
     return false;

@@ -2,27 +2,23 @@ import { ValidationError } from './errors/domainErrors.js';
 import { handleErrors } from './errors/handleErrors.js';
 import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
 import { QUIRKY_AND_INFORMATIVE_USER_INPUT_ERROR_MESSAGES } from './errors/errorMessages.js';
+import { sleep } from './utils/sleep.js';
 
-export function getPlayerGuess() {
+export async function getPlayerGuess() {
   while (true) {
-    const guess = prompt('Enter your guess (1-100): (Type \'Restart\' to restart the game)');
+    await sleep();
+    const guess = prompt(
+      "Enter your guess (1-100): (Type 'Restart' to restart the game)",
+    );
 
     try {
-      if(guess != "Restart")
-      {
-        const parsedGuess = parseUserPromptValueToInteger(guess);
+      const restartGame = wantToRestartGame(guess);
+      if (restartGame) return restartGame;
 
-        ensureIntegerRangeIncludingMinAndMax(parsedGuess, 1, 100);
-        return parsedGuess;
-      }
-      else
-      {
-        if(confirm("Are you sure you want to restart the game?"))
-        {
-          return "Restarting";
-        }
+      const parsedGuess = parseUserPromptValueToInteger(guess);
 
-      }
+      ensureIntegerRangeIncludingMinAndMax(parsedGuess, 1, 100);
+      return parsedGuess;
     } catch (error) {
       handleErrors(error);
     }
@@ -50,3 +46,8 @@ function ensureIntegerRangeIncludingMinAndMax(value, min, max) {
   }
 }
 
+function wantToRestartGame(stringValue) {
+  if (stringValue.trim().toLowerCase() !== 'restart') return;
+
+  return 'Restarting';
+}
