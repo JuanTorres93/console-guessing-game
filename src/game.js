@@ -18,13 +18,14 @@ export async function game() {
   greetUser(maxAttempts);
 
   while (attempts < maxAttempts && !guessedCorrectly) {
-    console.log(`Attempt ${attempts} of ${maxAttempts}`);
+    console.log(`Attempt ${attempts + 1} of ${maxAttempts}`);
 
     const guess = await getPlayerGuess();
 
     if (guess === 'Restarting') {
       await sleep();
       if (confirm('Want to start a new game?')) {
+        console.clear();
         return game();
       }
 
