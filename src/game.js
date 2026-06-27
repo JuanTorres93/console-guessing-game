@@ -28,8 +28,13 @@ export async function game() {
     const guess = await getPlayerGuess();
 
     if (guess === 'Terminating') {
-      console.log('Game terminated. See you next time!\nRefresh the page if you want to play again');
-      return;
+      if (confirm('Are you sure you want to terminate the game?'))
+      {
+        console.log('Game terminated. See you next time!\nRefresh the page if you want to play again');
+        return;
+      }
+        
+      continue;
     }
 
     if (guess === 'Restarting') {
