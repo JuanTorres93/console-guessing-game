@@ -11,6 +11,8 @@ export async function getPlayerGuess() {
       "Enter your guess (1-100): (Type 'Restart' to restart the game)",
     );
 
+    if (guess === null) return 'Terminating';
+
     try {
       const restartGame = wantToRestartGame(guess);
       if (restartGame) return restartGame;

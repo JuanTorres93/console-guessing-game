@@ -13,7 +13,12 @@ export async function game() {
   let attempts = 0;
   let guessedCorrectly = false;
 
-  await confirmStartGame();
+  const confirmedStart = await confirmStartGame();
+
+  if (!confirmedStart) {
+    console.log('Game terminated. See you next time!\nRefresh the page if you want to play again');
+    return;
+  }
 
   greetUser(maxAttempts);
 
@@ -21,6 +26,16 @@ export async function game() {
     console.log(`Attempt ${attempts + 1} of ${maxAttempts}`);
 
     const guess = await getPlayerGuess();
+
+    if (guess === 'Terminating') {
+      if (confirm('Are you sure you want to terminate the game?'))
+      {
+        console.log('Game terminated. See you next time!\nRefresh the page if you want to play again');
+        return;
+      }
+        
+      continue;
+    }
 
     if (guess === 'Restarting') {
       await sleep();
