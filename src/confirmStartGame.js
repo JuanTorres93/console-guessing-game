@@ -1,10 +1,14 @@
 import { sleep } from './utils/sleep.js';
 
 import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
+import { getConsoleInstructionsText } from './messages/consoleInstructions.js';
 
 export async function confirmStartGame() {
   await sleep();
-  confirm(getRandomItemFromArray(INITIAL_USER_CONFIRMATION_MESSAGES));
+
+  const message = `${getConsoleInstructionsText()}\n\n${getRandomItemFromArray(INITIAL_USER_CONFIRMATION_MESSAGES)}`;
+
+  return confirm(message);
 }
 
 export const INITIAL_USER_CONFIRMATION_MESSAGES = [
