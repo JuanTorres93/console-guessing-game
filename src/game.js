@@ -5,6 +5,8 @@ import { calculateScore } from './calculateScore.js';
 import { greetUser } from './greetUser.js';
 import { sleep } from './utils/sleep.js';
 import { confirmStartGame } from './confirmStartGame.js';
+import { getRandomItemFromArray } from './utils/getRandomItemFromArray.js';
+import { GAME_ENDED_MESSAGES, GAME_QUIT_MESSAGES } from './messages/gameEndMessages.js';
 
 export async function game() {
   const generatedNumber = generateRandomNumber();
@@ -16,7 +18,7 @@ export async function game() {
   const confirmedStart = await confirmStartGame();
 
   if (!confirmedStart) {
-    console.log('Game terminated. See you next time!\nRefresh the page if you want to play again');
+    console.log(getRandomItemFromArray(GAME_QUIT_MESSAGES));
     return;
   }
 
@@ -30,7 +32,7 @@ export async function game() {
     if (guess === 'Terminating') {
       if (confirm('Are you sure you want to terminate the game?'))
       {
-        console.log('Game terminated. See you next time!\nRefresh the page if you want to play again');
+        console.log(getRandomItemFromArray(GAME_QUIT_MESSAGES));
         return;
       }
         
@@ -76,5 +78,9 @@ export async function game() {
     console.clear();
 
     return game();
+  }
+  else
+  {
+    console.log(getRandomItemFromArray(GAME_ENDED_MESSAGES));
   }
 }

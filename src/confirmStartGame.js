@@ -11,7 +11,7 @@ export async function confirmStartGame() {
   return confirm(message);
 }
 
-export const INITIAL_USER_CONFIRMATION_MESSAGES = [
+const INITIAL_USER_CONFIRMATION_MESSAGES = [
   '🔢 Calibrating my mind-reading algorithms... Press OK to begin. I already know you will.',
   '🧠 Before we begin, I must measure your predictability. Press OK to continue.',
   "📡 Reading your thoughts... Interesting. They seem to be saying 'I'll press OK.'",
